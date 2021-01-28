@@ -59,8 +59,11 @@
     
     //////////////////////////// load user script
     
-    var userurl = getParameterByName("src");
-    if (!userurl) userurl = "./app.js";
+    // use this logic if you want to load app files defined in parameter.
+    //var userurl = getParameterByName("src");
+    //if (!userurl) userurl = "./app.js";
+    
+    var userurl = "./app.js";
     
     console.log("user script url=",userurl );
 
