@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <script src="//viewlang.ru/viewlang/code/depends/jquery-2.1.4.js"></script>
+
+  <script src="//viewlang.ru/viewlang/code//depends/qmlweb/src/parser.js"></script>
+  <script src="//viewlang.ru/viewlang/code//depends/qmlweb/src/process.js"></script>
+  <script src="//viewlang.ru/viewlang/code//depends/qmlweb/src/import.js"></script>
+  <script src="//viewlang.ru/viewlang/code//depends/qmlweb/src/qtcore.js"></script>
+
+  <script src="//viewlang.ru/viewlang/code//base.js"></script>
+<head>
+</head>
+<body>
+  <div id="qmlSpace">
+      target space for qml...
+  </div>
+  <style>
+  #qmlSpace {
+    width: 100vw !important;
+    bottom: 0px !important;
+    z-index: 10000;
+  }
+  .viewlang-canvas {
+    width: 100%; height: 100%;
+    margin: 0; padding: 0; display: block; left: 0px; top: 0px; position: absolute;
+  }
+  body { margin: 0; }
+  </style>
+
+  <script src="//viewlang.ru/viewlang/code//threejs_driver/init.js"></script>
+
+  <script type="module">
+
+    ///////////////////////////// qmlweb and viewlang
+    
+    import * as Viewlang from "//viewlang.ru/viewlang/code/embed2/init.js"
+    window.qmlEngine = new QMLEngine( document.getElementById( "qmlSpace" ) );
+    Viewlang.setup_qmlweb( qmlEngine );
+    qmlEngine.loadFile( "//viewlang.ru/viewzavr/qmlweb-ui/scene.vl" );
+    
+    ///////////////////////////// viewzavr
+    
+    import * as Viewzavr from "//viewlang.ru/viewzavr/init.js";
+
+    var vz = Viewzavr.create();
+    window.vz = vz;
+    //window.Viewzavr = Viewzavr;
+    qmlEngine.rootObject.vz = vz;
+    
+    //////////////////////////// library-one
+    
+    // import setup_library_one from "https://cdn.jsdelivr.net/gh/viewzavr/library-one@f09f9f5371ed569f332243f5ea24f48d485f9e92/init.js";
+    // import setup_library_one from "./lib.js";    
+    // import setup_library_one from "https://cdn.jsdelivr.net/gh/viewzavr/library-one@master/init.js";
+    import setup_library_one from "//viewlang.ru/viewzavr-apps/library-one/init.js";
+    setup_library_one(vz).then( function() {
+    
+    console.log("library one resolved");
+    
+    //////////////////////////// load user script
+    
+    var userurl = getParameterByName("src");
+    if (!userurl) userurl = "./app.js";
+    
+    console.log("user script url=",userurl );
+
+    if (userurl) {
+      // тут у нас форматирование для загрузки через прокси
+      userurl = formatSrc( userurl );
+      console.log("reformatted:",userurl );
+      
+      import( userurl ).then( function(module) {
+        // vz.restoreFromHash();
+        // мы отдаем это на откуп приложению. но - получается они у нас не шибко то и модульны становятся..
+        // т.к. если одно вызывает vz.restoreFromHash(); и другое...
+        // ну либо надо их как-то делать в setup-духе. или еще что придумывать.
+      })
+    }
+    else 
+    {
+      vz.restoreFromHash();
+      console.log("no user script provided");
+    }
+    
+    }) // library one
+
+  </script>
+
+</body>
