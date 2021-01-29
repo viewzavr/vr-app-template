@@ -49,9 +49,7 @@
     
     //////////////////////////// library-one
     
-    // import setup_library_one from "https://cdn.jsdelivr.net/gh/viewzavr/library-one@f09f9f5371ed569f332243f5ea24f48d485f9e92/init.js";
-    // import setup_library_one from "./lib.js";    
-    // import setup_library_one from "https://cdn.jsdelivr.net/gh/viewzavr/library-one@master/init.js";
+
     import setup_library_one from "//viewlang.ru/viewzavr-apps/library-one/init.js";
     setup_library_one(vz).then( function() {
     
@@ -82,6 +80,7 @@
           vz.saveTreeToHash( root );  // start monitor root tree and save it to hash
           console.log("restoring from hash...");
           vz.restoreFromHash( root ); // restore scene state from hash now
+          window.vzroot = root;
         }
       })
     }
@@ -92,6 +91,7 @@
       qmlEngine.rootObject.vzroot = root;
       vz.saveTreeToHash( root );
       vz.restoreFromHash( root );
+      window.vzroot = root;
       console.log("no user script provided");
     }
     
