@@ -5,8 +5,8 @@ A template for creating new viewzavr apps and components.
 
 Clone this repo, and add your code.
 * `index.html` is an entry point to the web. It setups required environment and calls `app.js`.
-* `app.js` is an application code.
-* `component1.js` is an example component.
+* `app.js` is your application code.
+* `component1.js` is your example component.
 
 ## license
 
