@@ -10,11 +10,7 @@ Clone this repo, and add your code.
 
 ## license
 
-This template is available with MIT license. Your app license is up to you.
-
-## copyright
-
-2020 Pavel Vasev
+2021+ (c) Pavel Vasev. This template is available with MIT license. Your app license is up to you. 
 
 # example codes for app.js
 
