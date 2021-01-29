@@ -4,7 +4,7 @@ A template for creating new viewzavr apps and components.
 ## instruction
 
 Clone this repo, and add your code.
-* `index.html` is an entry point to the web. It setup required environment and calls `app.js`.
+* `index.html` is an entry point to the web. It setups required environment and calls `app.js`.
 * `app.js` is an application code.
 * `component1.js` is an example component.
 
@@ -40,7 +40,7 @@ var obj = comp1.create( vz );
 ```
 
 ## register your component in visual interface
-A user will be able add your custom object to scene via visual interface.
+A user will be able add your custom object to a scene via visual interface.
 ```
 import * as comp1 from "./component1.js";
 comp1.register( vz );
