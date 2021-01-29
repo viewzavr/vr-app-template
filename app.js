@@ -1,4 +1,4 @@
-// viewzavr module
+// viewzavr app/module
 
 // module may contain `setup` function, which may add records to a table of visual components, used by visual interface
 export function setup( vz ) {
@@ -7,7 +7,7 @@ export function setup( vz ) {
   } );
 }
 
-// the component js code
+// place your app code in this function
 export function create( vz, opts ) {
   var obj = vz.create_obj( {}, opts );
 
