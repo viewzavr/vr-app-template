@@ -1,14 +1,15 @@
-// you may create a component for viewzavr
-// which will be usable both from javascript and visual interface
+// viewzavr module contains a list of components (0 or more)
 
 // here we add record to a table of visual components
-export function register( vz ) {
+export function setup( vz ) {
   vz.addItemType( "my-test-component-type-id","My test component", function( opts ) {
     return create( vz, opts );
   } );
+  // you may add many components in 1 module
 }
 
-// this is the real component code usable from js
+// this is real component code usable right from js
+// you may give an arbitrary name to this function
 export function create( vz, opts ) {
   var obj = vz.create_obj( {}, opts );
 
