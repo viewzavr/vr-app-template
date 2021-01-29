@@ -77,6 +77,7 @@
 
         if (module.create) {
           var root = module.create( vz, {}); // create a root object for scene
+          if (!root) console.error("WARNING: your create function did return empty result! Viewzavr needs object!");
           qmlEngine.rootObject.vzroot = root;
           vz.saveTreeToHash( root );  // start monitor root tree and save it to hash
           console.log("restoring from hash...");
