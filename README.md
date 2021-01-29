@@ -1,43 +1,12 @@
 # vr-app
-A template for creating new viewzavr apps and components.
+A template for creating new viewzavr apps, components, modules.
 
 ## instruction
 
 Clone this repo, and add your code.
-* `index.html` is an entry point to the web. It setups required environment and calls `app.js`.
-* `app.js` is your application code.
-* `module1.js` is your example module containing your Viewzavr components.
+* `index.html` is an entry point to the web. It setups required environment and calls `create` function from `app.js`.
+* `app.js` is your application code in a component form. Provide your app code in `create` function.
 
 ## license
 
-2021+ (c) Pavel Vasev. This template is available with MIT license. Your app license is up to you. 
-
-# example codes for app.js
-
-## add points component
-A points graphical object will be added to the scene with specified point coordinates.
-```
-var pts = vz.vis.addPoints();
-pts.positions = [1,2,3, 1,2,5, 1,3,12];
-```
-
-## add lines component
-A lines graphical object will be added to the scene with specified point coordinates.
-```
-var lins = vz.vis.addLines();
-lins.positions = [1,2,3, 1,2,5, 1,2,5, 1,3,12];
-```
-
-## add your custom component
-Your custom object will be added to the scene.
-```
-import * as module1 from "./module1.js";
-var obj = module1.create( vz );
-```
-
-## register your component in visual interface
-A user will be able add your custom object to a scene via visual interface.
-```
-import * as module1 from "./component1.js";
-module1.register( vz );
-```
+2021+ (c) Pavel Vasev. This template is available with MIT license. Your app license is up to you.

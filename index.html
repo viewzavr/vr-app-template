@@ -36,16 +36,16 @@
     import * as Viewlang from "//viewlang.ru/viewlang/code/embed2/init.js"
     window.qmlEngine = new QMLEngine( document.getElementById( "qmlSpace" ) );
     Viewlang.setup_qmlweb( qmlEngine );
-    qmlEngine.loadFile( "//viewlang.ru/viewzavr/qmlweb-ui/scene.vl" );
+    qmlEngine.loadFile( "//viewlang.ru/viewzavr/qmlweb-ui2/scene.vl" );
     
     ///////////////////////////// viewzavr
     
     import * as Viewzavr from "//viewlang.ru/viewzavr/init.js";
 
-    var vz = Viewzavr.create();
+    var vz = Viewzavr.create( {skipRoot: true} );
     window.vz = vz;
     //window.Viewzavr = Viewzavr;
-    qmlEngine.rootObject.vz = vz;
+    //qmlEngine.rootObject.vz = vz;
     
     //////////////////////////// library-one
     
@@ -73,15 +73,24 @@
       console.log("reformatted:",userurl );
       
       import( userurl ).then( function(module) {
-        // vz.restoreFromHash();
-        // мы отдаем это на откуп приложению. но - получается они у нас не шибко то и модульны становятся..
-        // т.к. если одно вызывает vz.restoreFromHash(); и другое...
-        // ну либо надо их как-то делать в setup-духе. или еще что придумывать.
+        if (module.setup) module.setup( vz );
+
+        if (module.create) {
+          var root = module.create( vz, {}); // create a root object for scene
+          qmlEngine.rootObject.vzroot = root;
+          vz.saveTreeToHash( root );  // start monitor root tree and save it to hash
+          console.log("restoring from hash...");
+          vz.restoreFromHash( root ); // restore scene state from hash now
+        }
       })
     }
     else 
     {
-      vz.restoreFromHash();
+      // this is case when no module provided. we can just start viewzavr.
+      var root = vz.create_obj( {}, {} )
+      qmlEngine.rootObject.vzroot = root;
+      vz.saveTreeToHash( root );
+      vz.restoreFromHash( root );
       console.log("no user script provided");
     }
     
