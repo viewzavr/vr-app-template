@@ -1,19 +1,19 @@
 # vr-app
 A template for creating new viewzavr apps.
 
-# instruction
+## instruction
 
-Clone this repo, and add your code to `app.js` file, `component1.js`, or fix `index.html`.
+Clone this repo, and add your code to `app.js` file, and (or) to `component1.js`, or fix `index.html`.
 
-# license
+## license
 
 This template is available with MIT license. Your app license is up to you.
 
-# copyright
+## copyright
 
 2020 Pavel Vasev
 
-# example codes
+# example codes for app.js
 
 ## add points
 ```
