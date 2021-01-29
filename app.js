@@ -16,6 +16,16 @@ export function create( vz, opts ) {
 
   var lins = vz.vis.addLines( obj );
   lins.positions = [1,2,3, 1,2,5, 1,2,5, 1,3,12];
+  
+  obj.addCmd( "click", function() {
+    obj.signalTracked( "r" );
+  });
+  obj.addSlider("r",10,0,100,1,function() {
+    var acc = []; var r = obj.getParam("r");
+    for (var i=0; i<100; i++) acc.push( r*(Math.random()-0.5),r*(Math.random()-0.5),r*(Math.random()-0.5) );
+    pts.positions = acc;
+    lins.positions = acc;
+  } );
 
   return obj;
 }
