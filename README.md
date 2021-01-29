@@ -1,9 +1,12 @@
 # vr-app
-A template for creating new viewzavr apps.
+A template for creating new viewzavr apps and components.
 
 ## instruction
 
-Clone this repo, and add your code to `app.js` file, and (or) to `component1.js`, or fix `index.html`.
+Clone this repo, and add your code.
+* `index.html` is an entry point to the web. it calls `app.js`
+* `app.js` is an application code
+* `component1.js` is an example component
 
 ## license
 

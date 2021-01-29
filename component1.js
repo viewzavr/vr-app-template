@@ -1,5 +1,5 @@
-// this is component template
-// you are free to create components or not
+// you may create a component for viewzavr
+// which will be usable both from javascript and visual interface
 
 // here we add record to a table of visual components
 export function register( vz ) {
