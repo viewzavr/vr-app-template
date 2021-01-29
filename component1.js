@@ -3,7 +3,7 @@
 
 // here we add record to a table of visual components
 export function register( vz ) {
-  vz.addItemType( "test-component.type","My test component", function( opts ) {
+  vz.addItemType( "my-test-component-type-id","My test component", function( opts ) {
     return create( vz, opts );
   } );
 }
