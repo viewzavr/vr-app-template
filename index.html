@@ -46,23 +46,18 @@
     
     //////////////////////////// player
     
+    // import * as Player from "./init.js";
     import * as Player from "//viewlang.ru/viewzavr-apps/vr-player-v1/init.js";
     var vzPlayer = Player.create( vz, qmlEngine );
     
     //////////////////////////// library-one
-
-    // мб всякая такая либа это мб уже функция плеера? (хотя формально она не его дело)
-    import setup_library_one from "//viewlang.ru/viewzavr-apps/library-one/init.js";
-    setup_library_one(vz).then( function() {
-    // можно сделать и правда, player.loadModule(..) и типа пусть загружает и затем loadApp уже ждет внутри себя
-    // в промисах сидит
-
+    vzPlayer.loadModule( "//viewlang.ru/viewzavr-apps/library-one/init.js" ).then( function() {
       //////////////////////////// load user script
     
       // use this logic if you want to load app files defined in parameter.
-      // var userurl = getParameterByName("src");
-      // if (!userurl) userurl = "./app.js";
-      var userurl = "./app.js";
+      //var userurl = getParameterByName("src");
+      //if (!userurl) userurl = "./app.js";
+      var userurl = vz.getDir(import.meta.url) + "/app.js";
 
       console.log("user script url=",userurl );
 
