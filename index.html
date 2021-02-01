@@ -36,78 +36,46 @@
     import * as Viewlang from "//viewlang.ru/viewlang/code/embed2/init.js"
     window.qmlEngine = new QMLEngine( document.getElementById( "qmlSpace" ) );
     Viewlang.setup_qmlweb( qmlEngine );
-    qmlEngine.loadFile( "//viewlang.ru/viewzavr/qmlweb-ui2/scene.vl" );
     
     ///////////////////////////// viewzavr
     
     import * as Viewzavr from "//viewlang.ru/viewzavr/init.js";
 
-    var vz = Viewzavr.create( {skipRoot: true} );
-    window.vz = vz;
-    //window.Viewzavr = Viewzavr;
-    //qmlEngine.rootObject.vz = vz;
+    var vz = Viewzavr.create();
+    // window.vz = vz;
+    
+    //////////////////////////// player
+    
+    import * as Player from "//viewlang.ru/viewzavr-apps/vr-player-v1/init.js";
+    var vzPlayer = Player.create( vz, qmlEngine );
     
     //////////////////////////// library-one
 
+    // мб всякая такая либа это мб уже функция плеера? (хотя формально она не его дело)
     import setup_library_one from "//viewlang.ru/viewzavr-apps/library-one/init.js";
     setup_library_one(vz).then( function() {
-    
-    console.log("library one resolved");
-    
-    //////////////////////////// viewzavr player
-    var vzPlayer = { vz: vz }
-    vzPlayer.setRoot = function(root) {
-      if (vzPlayer.getRoot()) vz.stopSavingTreeToHash( vzPlayer.getRoot() );
-      vzPlayer.root = root;
-      qmlEngine.rootObject.vzroot = root;
-      vz.saveTreeToHash( root,"mvis" );
-    }
-    vzPlayer.getRoot = function() {
-      return vzPlayer.root;
-    }
-    window.vzPlayer = vzPlayer;
-    
-    //////////////////////////// load user script
-    
-    // use this logic if you want to load app files defined in parameter.
-    //var userurl = getParameterByName("src");
-    //if (!userurl) userurl = "./app.js";
-    
-    var userurl = "./app.js";
-    
-    console.log("user script url=",userurl );
+    // можно сделать и правда, player.loadModule(..) и типа пусть загружает и затем loadApp уже ждет внутри себя
+    // в промисах сидит
 
-    if (userurl) {
-      // тут у нас форматирование для загрузки через прокси
-      userurl = formatSrc( userurl );
-      console.log("reformatted:",userurl );
-      
-      import( userurl ).then( function(module) {
-        if (module.setup) module.setup( vz );
+      //////////////////////////// load user script
+    
+      // use this logic if you want to load app files defined in parameter.
+      // var userurl = getParameterByName("src");
+      // if (!userurl) userurl = "./app.js";
+      var userurl = "./app.js";
 
-        if (module.create) {
-          var root = module.create( vz, {}); // create a root object for scene
-          root.module_url = (userurl.indexOf("//") >= 0 ? userurl : import.meta.url.split("#")[0] + userurl); //;
+      console.log("user script url=",userurl );
 
-          if (!root) {
-            console.error("WARNING: your create function did return empty result! Viewzavr needs object!");
-            root = vz.create_obj( {}, {} );
-          }
-          
-          // sync from saved state
-          console.log("restoring from hash...");
-          root = vz.restoreFromHash( root,"mvis" );
-          vzPlayer.setRoot( root );
-        }
-      })
-    }
-    else 
-    {
-      // this is case when no module provided. we can just start viewzavr.
-      var root = vz.restoreFromHash("mvis");
-      if (!root) root = vz.create_obj( {}, {} );
-      vzPlayer.setRoot( root );
-    }
+      if (userurl) {
+        // тут у нас форматирование для загрузки через прокси
+        userurl = formatSrc( userurl );
+        console.log("reformatted:",userurl );
+        vzPlayer.loadApp( userurl );
+      }
+      else 
+      {
+        vzPlayer.loadEmptyScene();
+      }
 
     }) // library one
 
