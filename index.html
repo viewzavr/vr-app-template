@@ -47,11 +47,12 @@
     //////////////////////////// player
     
     // import * as Player from "./init.js";
-    import * as Player from "//viewlang.ru/viewzavr-apps/vr-player-v1/init.js";
+    import * as Player from "//viewlang.ru/viewzavr-apps/viewzavr-player/init.js";
     var vzPlayer = Player.create( vz, qmlEngine );
+    window.vzPlayer = vzPlayer;
     
     //////////////////////////// library-one
-    vzPlayer.loadModule( "//viewlang.ru/viewzavr-apps/library-one/init.js" ).then( function() {
+    vzPlayer.loadPackage( "//viewlang.ru/viewzavr-apps/library-one/init.js" ).then( function() {
       //////////////////////////// load user script
     
       // use this logic if you want to load app files defined in parameter.
@@ -61,16 +62,22 @@
 
       console.log("user script url=",userurl );
 
+      var q;
       if (userurl) {
         // тут у нас форматирование для загрузки через прокси
         userurl = formatSrc( userurl );
         console.log("reformatted:",userurl );
-        vzPlayer.loadApp( userurl );
+        q = vzPlayer.loadApp( userurl );
       }
       else 
       {
-        vzPlayer.loadEmptyScene();
+        q = vzPlayer.loadEmptyScene();
       }
+
+      q.then( function() {
+        vzPlayer.loadFromHash();
+        vzPlayer.startSavingToHash();
+      });
 
     }) // library one
 
