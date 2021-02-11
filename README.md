@@ -12,6 +12,7 @@ You may use [viewzavr-hosted player](http://viewlang.ru/viewzavr-apps/viewzavr-s
 * http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=https://cdn.jsdelivr.net/gh/viewzavr/vr-app-template@main/app.js
 
 This option has a drawback - jsdelivr.com caches files, so you have to change `@main` tag in url to most recent commits.
+You do not need your server for this option. You may delete provided html files freely.
 
 ## Option 2 - own server for app.js
 To run your app, use viewzavr-hosted player:
