@@ -8,7 +8,7 @@ Use this repo as a `template`, and place your code into `app.js` file.
 # Running
 
 ## Option 1 - cloud based
-You may use viewzavr-hosted player and you may use https://www.jsdelivr.com to load your app. For example, current app may be loaded in a such way:
+You may use [viewzavr-hosted player](http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/) and you may use https://www.jsdelivr.com to load your app. For example, current app may be loaded in a such way:
 * http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=https://cdn.jsdelivr.net/gh/viewzavr/vr-app-template@main/app.js
 
 This option has a drawback - jsdelivr.com caches files, so you have to change `@main` tag in url to more recent branches.
