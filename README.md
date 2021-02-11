@@ -3,7 +3,7 @@ A template for running your new Viewzavr app / package. It uses [Viewzavr system
 
 # Usage
 
-Use this repo as a `template`, and place your code into `app.js` file.
+Use this repo as a template, and place your code into `app.js` file.
 
 # Running
 
