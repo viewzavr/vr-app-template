@@ -1,18 +1,36 @@
 # vr-app
 A template for running your new Viewzavr app / package. It uses [Viewzavr system A](https://github.com/viewzavr/viewzavr-system-a).
 
-## Usage
+# Usage
 
 Use this repo as a `template`, and place your code into `app.js` file.
 
+# Running
+
+## Option 1 - cloud based
+You may use [viewzavr-hosted player](http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/) and you may use https://www.jsdelivr.com to load your app. For example, current app may be loaded in a such way:
+* http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=https://cdn.jsdelivr.net/gh/viewzavr/vr-app-template@main/app.js
+
+This option has a drawback - jsdelivr.com caches files, so you have to change `@main` tag in url to most recent commits.
+
+## Option 2 - own server for app.js
 To run your app, use viewzavr-hosted player:
 * http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=path-to-your-app.js
 
-To host your app, you may use https://www.jsdelivr.com, which provides web access to github repos. For example, current app may be loaded in a such way:
-* http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=https://cdn.jsdelivr.net/gh/viewzavr/vr-app-template@main/app.js
+This option allows easier app.js update. You have to configure CORS headers on your server.
 
-## Own viewzavr codes hosting
-This app template uses Viewzavr player hosted by Viewzavr server. If you want to host all Viewzavr codes by yourself, you may use [vr-app-template-local](https://github.com/viewzar/vr-app-template-local), which is adapted for personal web hosting.
+## Option 2 - own server for html and app.js
+Use `index-viewzavr-remote.html` as a template. This file uses viewzavr codes hosted on viewzavr server.
+
+This option gives you control over html. You do not need to configure CORS.
+
+## Option 3 - 100% own
+Use `index-viewzavr-local.html` as a template. Before using it, add viewzavr as a submodule to your project:
+```
+git submodule add git@github.com/viewzavr/viewzavr-system-a
+```
+
+This option gives you full control over everything, but requires you to update viewzavr system time to time.
 
 ## license
 
