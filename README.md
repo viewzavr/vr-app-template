@@ -19,7 +19,7 @@ To run your app, use viewzavr-hosted player:
 
 This option allows easier app.js update. You have to configure CORS headers on your server.
 
-## Option 2 - own server for html and app.js, remote viewzavr
+## Option 2 - own server for html and app.js
 Use `index-viewzavr-remote.html` as a template. This file uses viewzavr codes hosted on viewzavr server.
 
 This option gives you control over html. You do not need to configure CORS.
