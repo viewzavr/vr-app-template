@@ -1,5 +1,5 @@
 # vr-app
-A template for running your new Viewzavr apps and packages. It uses [Viewzavr system A](https://github.com/viewzavr/viewzavr-system-a).
+A template for running your new Viewzavr app / package. It uses [Viewzavr system A](https://github.com/viewzavr/viewzavr-system-a).
 
 ## Usage
 
