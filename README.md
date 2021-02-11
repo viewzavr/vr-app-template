@@ -28,7 +28,8 @@ This option gives you control over html. You do not need to configure CORS.
 Use `index-viewzavr-own.html` as a template. Before using it, add viewzavr as a submodule to your project:
 ```
 git submodule add git@github.com:/viewzavr/viewzavr-system-a
-git submodule update --recursive --remote
+git submodule update --init --recursive
+# git submodule update --recursive --remote
 ```
 
 This option gives you full control over everything, but requires you to update viewzavr system time to time.
