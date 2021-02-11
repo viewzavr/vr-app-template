@@ -19,7 +19,7 @@ To run your app, use viewzavr-hosted player:
 
 This option allows easy development.
 
-## Option 2 - own html, remote viewzavr
+## Option 2 - own server for html and app.js, remote viewzavr
 Use `index-viewzavr-remote.html` as a template. This file uses viewzavr codes hosted on viewzavr server.
 
 This option gives you control over html.
