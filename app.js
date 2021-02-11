@@ -1,13 +1,17 @@
-// viewzavr app/module
+// A Viewzavr package is a javascript module. It may do anything, and beside that
+// there are following special functions may be exported:
+// * setup, which is called when package is loaded
+// * create, which is called to create scene when vzPlayer.loadApp function is called.
 
-// module may contain `setup` function, which may add records to a table of visual components, used by visual interface
+// setup function may register components in types table, which is used by player's visual interface
+// and by Viewzavr.createObjByType function.
 export function setup( vz ) {
   vz.addItemType( "my-test-component-type-id","My test component", function( opts ) {
     return create( vz, opts );
   } );
 }
 
-// place your app code in this function
+// create function should return Viewzavr object
 export function create( vz, opts ) {
   opts.name ||= "demoscene";
   var obj = vz.createObj( opts );
