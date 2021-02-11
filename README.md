@@ -25,7 +25,7 @@ Use `index-viewzavr-remote.html` as a template. This file uses viewzavr codes ho
 This option gives you control over html. You do not need to configure CORS.
 
 ## Option 3 - 100% own
-Use `index-viewzavr-local.html` as a template. Before using it, add viewzavr as a submodule to your project:
+Use `index-viewzavr-own.html` as a template. Before using it, add viewzavr as a submodule to your project:
 ```
 git submodule add git@github.com/viewzavr/viewzavr-system-a
 ```
