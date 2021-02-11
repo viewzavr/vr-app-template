@@ -9,7 +9,7 @@ Use this repo as a `template`, and place your code into `app.js` file.
 
 ## Option 1 - viewzavr-hosted player
 You may use [viewzavr-hosted player](http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/) to run your app.
-Run player with `src` parameter:
+Use `src` parameter:
 * http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=path-to-your-app.js
 
 Sub-options for serving app.js:
