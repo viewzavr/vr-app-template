@@ -30,7 +30,7 @@ Use `index-viewzavr-local.html` as a template. Before using it, add viewzavr as 
 git submodule add git@github.com/viewzavr/viewzavr-system-a
 ```
 
-This option gives you 100 control over everything, but requires you to update viewzavr system time to time.
+This option gives you full control over everything, but requires you to update viewzavr system time to time.
 
 ## license
 
