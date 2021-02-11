@@ -8,7 +8,7 @@ Use this repo as a `template`, and place your code into `app.js` file.
 To run your app, use viewzavr-hosted player:
 * http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=path-to-your-app.js
 
-To host your app, you may use https://www.jsdelivr.com/. For example, current app may be loaded in a such way:
+To host your app, you may use https://www.jsdelivr.com, which provides web access to github repos. For example, current app may be loaded in a such way:
 * http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=https://cdn.jsdelivr.net/gh/viewzavr/vr-app-template@main/app.js
 
 ## Own viewzavr codes hosting
