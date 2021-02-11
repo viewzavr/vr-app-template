@@ -5,7 +5,7 @@ A template for running your new Viewzavr apps and packages. It uses [Viewzavr sy
 
 Clone this repo, and add your code.
 * `index.html` is an entry point to the web. It setups required environment and calls `create` function of `app.js`.
-* `app.js` is your application code in a viewzavr package form. Provide your app code in `create` function.
+* `app.js` is your application code in a viewzavr package form.
 
 ## Viewzavr codes hosting
 This app template uses codes hosted by Viewzavr server. If you want to host them by yourself, you may:
