@@ -29,6 +29,7 @@ Use `index-viewzavr-own.html` as a template. Before using it, add viewzavr as a 
 ```
 git submodule add git@github.com:/viewzavr/viewzavr-system-a
 git submodule update --init --recursive
+
 # git submodule update --recursive --remote
 ```
 
